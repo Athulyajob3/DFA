@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import Admin from './pages/Admin/Admin'
 import Payment from './pages/Payment/Payment'
-import OrderSuccess from './pages/OrderSuccess/OrderSuccess'   // ✅ Import OrderSuccess
+import OrderSuccess from './pages/OrderSuccess/OrderSuccess'
 import StoreContextProvider from './context/StoreContext'
 
 const App = () => {
@@ -22,10 +22,10 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/order' element={<Placeholder />} />
+          <Route path='/placeholder' element={<Placeholder />} />
           <Route path='/admin' element={<Admin />} />
           <Route path='/payment' element={<Payment />} />
-          <Route path='/order-success' element={<OrderSuccess />} /> {/* ✅ Added OrderSuccess */}
+          <Route path='/order-success' element={<OrderSuccess />} />  
         </Routes>
       </div>
       <Footer />

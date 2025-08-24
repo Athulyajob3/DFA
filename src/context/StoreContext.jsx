@@ -8,7 +8,9 @@ const StoreContextProvider = (props) => {
   const [foodList, setFoodList] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:5000/foods";
+  // ✅ Use Render URL (from .env)
+  const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API_URL = `${API_BASE}/foods`;
 
   // READ: Fetch foods
   useEffect(() => {
@@ -23,7 +25,7 @@ const StoreContextProvider = (props) => {
       }
     };
     fetchFoods();
-  }, []);
+  }, [API_URL]);
 
   // ✅ CREATE
   const addFood = async (newFood) => {
@@ -77,7 +79,7 @@ const StoreContextProvider = (props) => {
     });
   };
 
-  // ✅ FIXED getTotalCartAmount (use `_id`)
+  // ✅ getTotalCartAmount (using `_id`)
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const itemId in cartItems) {

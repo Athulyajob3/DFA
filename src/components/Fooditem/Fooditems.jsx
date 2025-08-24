@@ -1,6 +1,6 @@
  import React, { useContext } from "react";
 import "./Fooditem.css";
-import { assets } from "../../assets/assets"; // Make sure your icons are imported correctly
+import { assets } from "../../assets/assets";  
 import { StoreContext } from "../../context/StoreContext";
 
 const Fooditems = ({ id, name, price, description, image }) => {
@@ -48,3 +48,4 @@ const Fooditems = ({ id, name, price, description, image }) => {
 };
 
 export default Fooditems;
+

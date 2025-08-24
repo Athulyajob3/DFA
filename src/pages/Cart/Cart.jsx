@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const Cart = () => {
   const { cartItems, foodList, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
   const navigate = useNavigate();
-
   const totalAmount = getTotalCartAmount();
 
   return (
@@ -73,7 +72,7 @@ const Cart = () => {
                 <b>${totalAmount + 5}</b>
               </div>
             </div>
-            <button onClick={() => navigate('/payment')}>
+            <button onClick={() => navigate('/placeholder')}>
               PROCEED TO CHECKOUT
             </button>
           </div>

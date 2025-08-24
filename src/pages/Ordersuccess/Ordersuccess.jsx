@@ -1,4 +1,4 @@
-// src/pages/OrderSuccess/OrderSuccess.jsx
+ 
 import React from 'react';
 import './OrderSuccess.css';
 import { Link } from 'react-router-dom';

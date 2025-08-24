@@ -7,7 +7,7 @@ const Payment = () => {
 
   const handlePayment = () => {
     alert("✅ Payment Successful!\nThank you for your order.");
-    // You can also clear cart here or redirect to orders page
+    
   };
 
   return (

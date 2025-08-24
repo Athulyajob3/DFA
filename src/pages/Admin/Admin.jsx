@@ -3,6 +3,9 @@ import { StoreContext } from "../../context/StoreContext";
 import "./Admin.css";
 import axios from "axios";
 
+ 
+const BASE_URL = "https://delfud-5.onrender.com";
+
 const Admin = () => {
   const { foodList, loading } = useContext(StoreContext);
 
@@ -15,7 +18,7 @@ const Admin = () => {
 
   const [editId, setEditId] = useState(null);
 
-  // Handle input
+  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -25,26 +28,26 @@ const Admin = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:5000/foods/${editId}`, formData);
-        alert("Food updated!");
+        await axios.put(`${BASE_URL}/foods/${editId}`, formData);
+        alert("✅ Food updated!");
       } else {
-        await axios.post("http://localhost:5000/foods", formData);
-        alert("Food added!");
+        await axios.post(`${BASE_URL}/foods`, formData);
+        alert("✅ Food added!");
       }
       window.location.reload();
     } catch (err) {
-      console.error("Error saving food:", err);
+      console.error("❌ Error saving food:", err);
     }
   };
 
   // Delete food
-  const deleteFood = async (id) => {
+  const deleteFood = async (_id) => {
     try {
-      await axios.delete(`http://localhost:5000/foods/${id}`);
-      alert("Food deleted!");
+      await axios.delete(`${BASE_URL}/foods/${_id}`);
+      alert("🗑️ Food deleted!");
       window.location.reload();
     } catch (err) {
-      console.error("Error deleting food:", err);
+      console.error("❌ Error deleting food:", err);
     }
   };
 

@@ -1,11 +1,16 @@
-import React, { useContext } from 'react'
+ import React, { useContext } from 'react'
 import './Placeholder.css'
 import { StoreContext } from '../../context/StoreContext'
-
+import { useNavigate } from 'react-router-dom'
 
 const Placeholder = () => {
+  const { getTotalCartAmount } = useContext(StoreContext)
+  const navigate = useNavigate()
 
-  const {getTotalCartAmount} = useContext(StoreContext)
+  const handleProceed = (e) => {
+    e.preventDefault()  
+    navigate("/payment")  
+  }
 
   return (
     <form className='place-order'>
@@ -46,7 +51,7 @@ const Placeholder = () => {
               <b>{getTotalCartAmount() + 5}</b>
             </div>
           </div>
-          <button>PROCCEED TO PAYMENT</button>
+          <button onClick={handleProceed}>PROCEED TO PAYMENT</button>
         </div>
       </div>
     </form>
